@@ -1,0 +1,44 @@
+# Paste individual requests into Kibana Dev Tools. Replace index/endpoint IDs if changed.
+# This file contains no keys. Endpoint lookup requires suitable permissions.
+
+GET _inference/text_embedding/.jina-embeddings-v5-text-small
+
+GET shopping-demo-products/_mapping
+
+GET shopping-demo-products/_settings?include_defaults=true
+
+GET shopping-demo-products/_count
+
+# Inspect semantic_text-generated chunks for a known long guide.
+POST shopping-demo-products/_search
+{
+  "query": {"ids": {"values": ["shoe-002"]}},
+  "_source": ["name", "description", "price", "variants"],
+  "fields": [{"field": "searchable_content", "format": "chunks"}]
+}
+
+# Semantic search with budget and same-variant size/stock constraints.
+POST shopping-demo-products/_search
+{
+  "size": 5,
+  "query": {
+    "bool": {
+      "must": [{"match": {"searchable_content": "comfortable shoes for walking around a city all day"}}],
+      "filter": [
+        {"term": {"currency": "USD"}},
+        {"range": {"price": {"lte": 100}}},
+        {"nested": {"path": "variants", "query": {"bool": {"filter": [
+          {"term": {"variants.size_system": "US"}},
+          {"term": {"variants.size": "9"}},
+          {"range": {"variants.stock": {"gt": 0}}}
+        ]}}}}
+      ]
+    }
+  },
+  "_source": ["product_id", "name", "price", "currency", "variants", "attributes"],
+  "highlight": {"pre_tags": [""], "post_tags": [""], "fields": {
+    "searchable_content": {"type": "semantic", "number_of_fragments": 2, "order": "score"}
+  }}
+}
+
+# For the exact hybrid JSON request, copy the Elasticsearch request tab from the app.

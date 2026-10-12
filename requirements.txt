@@ -1,0 +1,6 @@
+# Streamlit Community Cloud runtime dependencies; keep aligned with pyproject.toml.
+elasticsearch>=9.1,<10
+openai>=2,<3
+streamlit>=1.40,<2
+pydantic>=2.8,<3
+python-dotenv>=1,<2

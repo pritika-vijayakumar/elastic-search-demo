@@ -1,0 +1,211 @@
+[
+  {
+    "id": "meaning",
+    "question": "Comfortable shoes for walking around New York all day",
+    "mode": "semantic",
+    "constraints": {
+      "max_price": 100,
+      "size": "9"
+    },
+    "relevant_ids": [
+      "shoe-001",
+      "shoe-002",
+      "shoe-006",
+      "shoe-007",
+      "shoe-008",
+      "shoe-031"
+    ],
+    "expect_empty": false
+  },
+  {
+    "id": "hybrid-city",
+    "question": "Comfortable city walking sneakers",
+    "mode": "hybrid",
+    "constraints": {
+      "max_price": 100,
+      "size": "9"
+    },
+    "relevant_ids": [
+      "shoe-001",
+      "shoe-002",
+      "shoe-006",
+      "shoe-007",
+      "shoe-008",
+      "shoe-031"
+    ],
+    "expect_empty": false
+  },
+  {
+    "id": "exact-name",
+    "question": "WalkLite 200",
+    "mode": "keyword",
+    "constraints": {
+      "max_price": 100,
+      "size": "9"
+    },
+    "relevant_ids": [
+      "shoe-001"
+    ],
+    "expect_empty": false
+  },
+  {
+    "id": "exact-hybrid",
+    "question": "WalkLite 200",
+    "mode": "hybrid",
+    "constraints": {
+      "max_price": 100,
+      "size": "9"
+    },
+    "relevant_ids": [
+      "shoe-001"
+    ],
+    "expect_empty": false
+  },
+  {
+    "id": "price-boundary",
+    "question": "PavementEase Knit",
+    "mode": "hybrid",
+    "constraints": {
+      "max_price": 100,
+      "size": "9"
+    },
+    "relevant_ids": [
+      "shoe-008"
+    ],
+    "expect_empty": false
+  },
+  {
+    "id": "over-budget",
+    "question": "MetroCloud Premium",
+    "mode": "keyword",
+    "constraints": {
+      "max_price": 200,
+      "size": "9"
+    },
+    "relevant_ids": [
+      "shoe-003"
+    ],
+    "expect_empty": false
+  },
+  {
+    "id": "size-nine",
+    "question": "WalkLite 200 Plus",
+    "mode": "hybrid",
+    "constraints": {
+      "max_price": 100,
+      "size": "9"
+    },
+    "relevant_ids": [
+      "shoe-001"
+    ],
+    "expect_empty": false
+  },
+  {
+    "id": "size-ten",
+    "question": "WalkLite 200 Plus",
+    "mode": "hybrid",
+    "constraints": {
+      "max_price": 100,
+      "size": "10"
+    },
+    "relevant_ids": [
+      "shoe-004"
+    ],
+    "expect_empty": false
+  },
+  {
+    "id": "rain",
+    "question": "Waterproof walking shoes for damp sidewalks",
+    "mode": "semantic",
+    "constraints": {
+      "max_price": 100,
+      "size": "9"
+    },
+    "relevant_ids": [
+      "shoe-006"
+    ],
+    "expect_empty": false
+  },
+  {
+    "id": "unknown-weather",
+    "question": "Are CityStride Comfort shoes waterproof?",
+    "mode": "hybrid",
+    "constraints": {
+      "max_price": 100,
+      "size": "9"
+    },
+    "relevant_ids": [
+      "shoe-002"
+    ],
+    "expect_empty": false
+  },
+  {
+    "id": "guide",
+    "question": "How do I clean CityStride Comfort insoles after a city walk?",
+    "mode": "semantic",
+    "constraints": {
+      "max_price": 100,
+      "size": "9"
+    },
+    "relevant_ids": [
+      "shoe-002"
+    ],
+    "expect_empty": false
+  },
+  {
+    "id": "formal",
+    "question": "Polished dress shoes for office meetings",
+    "mode": "semantic",
+    "constraints": {
+      "max_price": 100,
+      "size": "10"
+    },
+    "relevant_ids": [
+      "shoe-005",
+      "shoe-017"
+    ],
+    "expect_empty": false
+  },
+  {
+    "id": "no-budget-match",
+    "question": "Comfortable walking shoes",
+    "mode": "hybrid",
+    "constraints": {
+      "max_price": 1,
+      "size": "9"
+    },
+    "relevant_ids": [],
+    "expect_empty": true
+  },
+  {
+    "id": "missing-size",
+    "question": "Everyday sneakers",
+    "mode": "semantic",
+    "constraints": {
+      "max_price": 100,
+      "size": "99"
+    },
+    "relevant_ids": [],
+    "expect_empty": true
+  },
+  {
+    "id": "no-size-filter",
+    "question": "Flexible lightweight everyday sneakers",
+    "mode": "hybrid",
+    "constraints": {
+      "max_price": 100,
+      "size": null
+    },
+    "relevant_ids": [
+      "shoe-001",
+      "shoe-002",
+      "shoe-004",
+      "shoe-006",
+      "shoe-007",
+      "shoe-008",
+      "shoe-019",
+      "shoe-031"
+    ],
+    "expect_empty": false
+  }
+]
