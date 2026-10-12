@@ -1,3 +1,6 @@
+"""
+diagnostics.py checks whether the Elastic configuration matches what this demo expects and turns errors into readable messages.
+"""
 import json
 
 from src.config import ROOT, Settings

@@ -1,3 +1,8 @@
+"""
+ingest.py uploads your local product catalog into Elasticsearch. This makes the products available for keyword and semantic search.
+"""
+
+
 from elasticsearch.helpers import streaming_bulk
 
 from src.catalog import index_document, load_catalog
@@ -11,6 +16,7 @@ def main():
     products = load_catalog(ROOT / "data" / "products.jsonl")
     successes, failures = 0, []
     with create_client(settings) as client:
+        #Check Elasticsearch before uploading
         inspect_endpoint(client, settings)
         verify_index(client, settings)
         # create prevents accidental overwrites. Duplicate IDs fail visibly on a second run.

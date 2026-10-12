@@ -1,3 +1,8 @@
+"""
+context.py prepares the evidence that OpenAI receives.
+It takes the search results and keeps the product facts, relevant passages, and eligible sizes needed to answer the customer.
+"""
+
 def build_context(result: dict) -> dict:
     constraints = result["constraints"]
     evidence = []

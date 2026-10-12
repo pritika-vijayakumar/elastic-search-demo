@@ -23,7 +23,10 @@ flowchart TD
 
 ## Preparing the data
 
-`scripts.generate_catalog` creates deterministic data; `src.catalog` validates it.
+
+`scripts.generate_catalog` creates deterministic data; `src.catalog` validates it. 
+`products-index.json` is the blueprint for the Elasticsearch product index. It tells Elasticsearch how to store each field and which kinds of searches it supports. It contains configuration—not product records.
+
 `scripts.create_index` uses explicit strict mappings and the configured inference ID.
 `scripts.ingest` sends raw text and facts; Elasticsearch handles semantic chunking and
 embedding requests through EIS. The same field endpoint is used for query embeddings.

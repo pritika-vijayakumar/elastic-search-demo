@@ -75,6 +75,34 @@ records. After an interrupted ingestion, a rerun creates missing records and rep
 for existing ones; check the index count and evaluation results. For a clean restart, choose
 a new `ES_INDEX`. There is no automatic delete/reset command.
 
+## Run the Jupyter notebook
+
+The [preparation, retrieval, and answer notebook](notebooks/retrieval_and_answer.ipynb)
+validates the local catalog, previews searchable documents and the index mapping, then
+uses the same retrieval and answering modules as the app. Index creation and ingestion
+are optional and disabled by default for your existing index. Brief Markdown introductions
+explain each group of cells.
+
+From the project folder, install the optional notebook dependency:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e '.[notebook]'
+```
+
+Install the **Jupyter** and **Python** extensions in VS Code. Open the notebook, click
+**Select Kernel**, choose **Python Environments**, and select the project's
+`.venv\Scripts\python.exe`. If it is missing, use **Python: Select Interpreter** in the
+Command Palette to select that interpreter, then select the notebook kernel again.
+Virtual-environment activation is unnecessary when that kernel is selected.
+
+Run cells from top to bottom. Leave the group 5 creation/upload flags disabled for your
+already-ingested index. Edit the question, mode, budget, and size in group 7.
+Groups 8 and 10 make real retrieval and OpenAI calls. The optional comparison is disabled
+by default; enable its flag to run three extra searches without answer generation.
+After editing inputs, rerun groups 7 through 11. Keep credentials in `.env`, never in cells.
+Clear all notebook outputs before committing or sharing if they contain private information.
+The checked-in notebook has no saved outputs and has not made live API calls.
+
 ## Use the interface
 
 1. Inspect the local **Catalog** and a product's size-specific variants.
@@ -162,6 +190,7 @@ enable calibration simply for the recording. A 60-product demo is not a benchmar
 - `data/`: reproducible fictional catalog and evaluation questions.
 - `scripts/`: checks, index creation, ingestion, generation of data, and evaluation.
 - `prompts/`: grounding instructions.
+- `notebooks/`: step-by-step retrieval and answer workflow using the existing index.
 - `tests/`: offline behavior checks.
 - `docs/`: architecture, recording walkthrough, Kibana requests.
 - `reports/`: generated local evaluation reports (ignored by Git).

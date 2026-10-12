@@ -1,3 +1,9 @@
+"""
+config.py loads the application’s connection settings, checks that 
+essential values are present, and returns them as a single Settings
+object.
+"""
+
 import os
 import re
 from dataclasses import dataclass, field
